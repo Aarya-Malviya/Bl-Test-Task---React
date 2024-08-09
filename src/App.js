@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router,Route, Routes } from 'react-router-dom';
+import SideBar from './conponent/SideBar';
+import Header from './conponent/Header';
+import Form from './conponent/Form';
+import SubmittedData from './conponent/SubmittedData';
+import Add from './conponent/AddProduct'
+import AddProduct from './conponent/AddProduct';
 
-function App() {
+
+
+ function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+     <Router>
+      <Header/>
+      <SideBar/>
+      <Routes>
+      {/* <Route exact path="/" component={Form} />
+      <Route exact path="/submitted-data" component={SubmittedData} /> */}
+      <Route exact path="/" component={<Form/>} ></Route>
+      {/* <Route exact path="/add" component={<Add/>} ></Route> */}
+      {/* <Route path="/add" component={() => <AddProduct    fetchData={fetchData} />} /> */}
+        <Route path="/submitted-data" component={<SubmittedData/>} ></Route>
+        
+      </Routes>
+     </Router>
+
+    </>
+  )
+ }
 
 export default App;
+  
